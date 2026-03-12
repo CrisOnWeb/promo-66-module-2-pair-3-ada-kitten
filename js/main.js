@@ -1,8 +1,16 @@
-"use strict";
+'use strict';
 
+// QUERY SELECTOR
 //Variable para ul de sección data
-const ulData = document.querySelector(".js-list");
-
+const ulData = document.querySelector('.js-ulData');
+// Evento de click para el formulario
+// asociamos botón a js
+const btnForm = document.querySelector('.js-btnForm');
+const newForm = document.querySelector('.js-newForm');
+// Botón de cancelar del formulario añadir gatito
+const cancelBtnForm = document.querySelector('.js-cancelBtnForm');
+const formElement = document.querySelector('.js-formElement');
+// VARIABLES
 // Variables de los li de cada gatito
 const kittenOne = `<li class="card">
   <article>
@@ -36,7 +44,7 @@ const kittenTwo = `<li class="card">
               gatuna que se caracteriza por la «ausencia» de pelo.
     </p>
   </article>
-</li>`
+</li>`;
 
 const kittenThree = `<li class="card">
   <article>
@@ -50,16 +58,22 @@ const kittenThree = `<li class="card">
               Sus ojos son grandes y las orejas resultan largas y en punta.
     </p>
   </article>
-</li>`
+</li>`;
+
+// FUNCIONES
+
+// EVENTOS
+btnForm.addEventListener('click', () => {
+  newForm.classList.toggle('collapsed');
+});
+
+cancelBtnForm.addEventListener('click', () => {
+  newForm.classList.add('collapsed');
+  // Resetear valores del formulario
+  formElement.reset();
+});
+
+// CÓDIGO QUE SE LANZA CUANDO SE CARGA LA PÁGINA
 
 // Añado al ul los gatitos
 ulData.innerHTML = kittenOne + kittenTwo + kittenThree;
-
-// Evento de click para el formulario
-// asociamos botón a js
-const btnForm = document.querySelector(".js-btn-add");
-const newForm = document.querySelector(".js-new-form");
-
-btnForm.addEventListener("click", () => {
-  newForm.classList.toggle("collapsed");
-})
