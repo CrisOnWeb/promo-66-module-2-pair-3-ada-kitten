@@ -10,6 +10,9 @@ const newForm = document.querySelector('.js-newForm');
 // Botón de cancelar del formulario añadir gatito
 const cancelBtnForm = document.querySelector('.js-cancelBtnForm');
 const formElement = document.querySelector('.js-formElement');
+// Búsqueda por descripción
+const buttonSearch = document.querySelector ('.js-buttonSearch');
+const inSearchDesc = document.querySelector ('.js-inSearchDesc');
 // VARIABLES
 // Variables de los li de cada gatito
 const kittenOne = `<li class="card">
