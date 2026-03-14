@@ -63,6 +63,19 @@ const kittenThree = `<li class="card">
   </article>
 </li>`;
 
+// Variables de las descripciones
+const kittenDesc1= `Porte elegante, su patrón de color tan característico y sus ojos
+              de un azul intenso, pero su historia se remonta a Asía al menos
+              hace 500 años, donde tuvo su origen muy posiblemente.`
+
+const kittenDesc2= `Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
+              hasta con pinta de alienígena han llegado a definir a esta raza
+              gatuna que se caracteriza por la «ausencia» de pelo.`
+
+const kittenDesc3= `Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
+              bella mirada se ha convertido en una de sus señas de identidad.
+              Sus ojos son grandes y las orejas resultan largas y en punta.`
+
 // FUNCIONES
 
 // EVENTOS
@@ -75,6 +88,27 @@ cancelBtnForm.addEventListener('click', () => {
   // Resetear valores del formulario
   formElement.reset();
 });
+
+buttonSearch.addEventListener("click", (ev) => {
+  ev.preventDefault();
+  const descrSearchText = inSearchDesc.value;
+
+  if (kittenDesc1.includes (descrSearchText)) {
+    ulData.innerHTML = kittenOne;
+  }
+  
+  if (kittenDesc2.includes (descrSearchText)) {
+    ulData.innerHTML = kittenTwo;
+  }
+  
+  if (kittenDesc3.includes (descrSearchText)) {
+    ulData.innerHTML = kittenThree;
+  }
+});
+
+
+
+
 
 // CÓDIGO QUE SE LANZA CUANDO SE CARGA LA PÁGINA
 
