@@ -11,8 +11,8 @@ const newForm = document.querySelector('.js-newForm');
 const cancelBtnForm = document.querySelector('.js-cancelBtnForm');
 const formElement = document.querySelector('.js-formElement');
 // Búsqueda por descripción
-const buttonSearch = document.querySelector ('.js-buttonSearch');
-const inSearchDesc = document.querySelector ('.js-inSearchDesc');
+const buttonSearch = document.querySelector('.js-buttonSearch');
+const inSearchDesc = document.querySelector('.js-inSearchDesc');
 // VARIABLES
 // Variables de los li de cada gatito
 const kittenOne = `<li class="card">
@@ -64,17 +64,17 @@ const kittenThree = `<li class="card">
 </li>`;
 
 // Variables de las descripciones
-const kittenDesc1= `Porte elegante, su patrón de color tan característico y sus ojos
+const kittenDesc1 = `Porte elegante, su patrón de color tan característico y sus ojos
               de un azul intenso, pero su historia se remonta a Asía al menos
-              hace 500 años, donde tuvo su origen muy posiblemente.`
+              hace 500 años, donde tuvo su origen muy posiblemente.`;
 
-const kittenDesc2= `Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
+const kittenDesc2 = `Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
               hasta con pinta de alienígena han llegado a definir a esta raza
-              gatuna que se caracteriza por la «ausencia» de pelo.`
+              gatuna que se caracteriza por la «ausencia» de pelo.`;
 
-const kittenDesc3= `Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
+const kittenDesc3 = `Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
               bella mirada se ha convertido en una de sus señas de identidad.
-              Sus ojos son grandes y las orejas resultan largas y en punta.`
+              Sus ojos son grandes y las orejas resultan largas y en punta.`;
 
 // FUNCIONES
 
@@ -89,26 +89,30 @@ cancelBtnForm.addEventListener('click', () => {
   formElement.reset();
 });
 
-buttonSearch.addEventListener("click", (ev) => {
+// POSIBLE MEJORA FUTURA: si ponemos algo que no coincide, muestra los tres; en vez de no mostrar ninguno
+buttonSearch.addEventListener('click', (ev) => {
   ev.preventDefault();
   const descrSearchText = inSearchDesc.value;
 
-  if (kittenDesc1.includes (descrSearchText)) {
+  if (kittenDesc1.includes(descrSearchText)) {
     ulData.innerHTML = kittenOne;
   }
-  
-  if (kittenDesc2.includes (descrSearchText)) {
+
+  if (kittenDesc2.includes(descrSearchText)) {
     ulData.innerHTML = kittenTwo;
   }
-  
-  if (kittenDesc3.includes (descrSearchText)) {
+
+  if (kittenDesc3.includes(descrSearchText)) {
     ulData.innerHTML = kittenThree;
   }
+
+  // Si dejan descripción vacía -> que imprima todos los gatos
+  if (descrSearchText === '') {
+    ulData.innerHTML = kittenOne + kittenTwo + kittenThree;
+  }
+
+  console.log(descrSearchText);
 });
-
-
-
-
 
 // CÓDIGO QUE SE LANZA CUANDO SE CARGA LA PÁGINA
 
