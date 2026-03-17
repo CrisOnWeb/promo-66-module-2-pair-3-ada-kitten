@@ -1,7 +1,6 @@
 'use strict';
 
 /* PENDIENTES: 
- - Añadir evento a raza buscador
  - function paintHtmlKittens() {}
 
 */
@@ -19,7 +18,7 @@ const formElement = document.querySelector('.js-formElement');
 // Búsqueda por descripción
 const buttonSearch = document.querySelector('.js-buttonSearch');
 const inSearchDesc = document.querySelector('.js-inSearchDesc');
-const inSearchRace = document.querySelector ('.js-inSearchRace');
+const inSearchRace = document.querySelector('.js-inSearchRace');
 
 // VARIABLES
 // Variables de los li de cada gatito
@@ -75,28 +74,45 @@ function handleClickBtnForm() {
   newForm.classList.toggle('collapsed');
 }
 
-// POSIBLE MEJORA FUTURA: si ponemos algo que no coincide, muestra los tres; en vez de no mostrar ninguno
 function filterKitten(ev) {
   ev.preventDefault();
-  const descrSearchText = inSearchDesc.value;
+  const descrSearchText = inSearchDesc.value.toLowerCase();
+  const raceSearchText = inSearchRace.value.toLowerCase();
+  let html = '';
+  console.log(descrSearchText);
+  console.log(raceSearchText);
 
-  if (kittenData1.desc.includes(descrSearchText)) {
-    ulData.innerHTML = renderKitten(kittenData1);
+  if (
+    (descrSearchText === '' && raceSearchText === '') ||
+    (descrSearchText !== '' &&
+      kittenData1.desc.toLowerCase().includes(descrSearchText)) ||
+    (raceSearchText !== '' &&
+      kittenData1.race.toLowerCase().includes(raceSearchText))
+  ) {
+    html += renderKitten(kittenData1);
   }
 
-  if (kittenData2.desc.includes(descrSearchText)) {
-    ulData.innerHTML = renderKitten(kittenData2);
+  if (
+    (descrSearchText === '' && raceSearchText === '') ||
+    (descrSearchText !== '' &&
+      kittenData2.desc.toLowerCase().includes(descrSearchText)) ||
+    (raceSearchText !== '' &&
+      kittenData2.race.toLowerCase().includes(raceSearchText))
+  ) {
+    html += renderKitten(kittenData2);
   }
 
-  if (kittenData3.desc.includes(descrSearchText)) {
-    ulData.innerHTML = renderKitten(kittenData3);
+  if (
+    (descrSearchText === '' && raceSearchText === '') ||
+    (descrSearchText !== '' &&
+      kittenData3.desc.toLowerCase().includes(descrSearchText)) ||
+    (raceSearchText !== '' &&
+      kittenData3.race.toLowerCase().includes(raceSearchText))
+  ) {
+    html += renderKitten(kittenData3);
   }
-  // Si dejan descripción vacía -> que imprima todos los gatos
-  if (descrSearchText === '') {
-    ulData.innerHTML = renderKitten(kittenData1);
-    ulData.innerHTML += renderKitten(kittenData2);
-    ulData.innerHTML += renderKitten(kittenData3);
-  }
+
+  ulData.innerHTML = html;
 }
 
 function cancelNewKitten(ev) {
