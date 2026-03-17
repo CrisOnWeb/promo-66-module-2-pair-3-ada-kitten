@@ -19,6 +19,8 @@ const formElement = document.querySelector('.js-formElement');
 // Búsqueda por descripción
 const buttonSearch = document.querySelector('.js-buttonSearch');
 const inSearchDesc = document.querySelector('.js-inSearchDesc');
+const inSearchRace = document.querySelector ('.js-inSearchRace');
+
 // VARIABLES
 // Variables de los li de cada gatito
 
@@ -48,6 +50,8 @@ const kittenData3 = {
         Sus ojos son grandes y las orejas resultan largas y en punta.`,
   race: 'Maine Coon',
 };
+
+const kittenDataList = [kittenData1, kittenData2, kittenData3];
 
 // FUNCIONES
 
