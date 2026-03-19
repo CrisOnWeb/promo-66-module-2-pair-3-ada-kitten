@@ -54,6 +54,17 @@ const kittenDataList = [kittenData1, kittenData2, kittenData3];
 
 // FUNCIONES
 
+
+function renderKittenList (kittenDataList) {
+  ulData.innerHTML = '';
+
+  for (const kittenItem of kittenDataList) {
+    ulData.innerHTML += renderKitten (kittenItem);
+  }
+}
+
+
+
 function renderKitten(kitten) {
   const html = `<li class="card">
   <article>
@@ -130,6 +141,5 @@ buttonSearch.addEventListener('click', filterKitten);
 
 // CÓDIGO QUE SE LANZA CUANDO SE CARGA LA PÁGINA
 
-ulData.innerHTML = renderKitten(kittenData1);
-ulData.innerHTML += renderKitten(kittenData2);
-ulData.innerHTML += renderKitten(kittenData3);
+debugger;
+renderKittenList (kittenDataList);
